@@ -2,7 +2,7 @@
  * @Author: BaoTong
  * @Date: 2022-01-18 00:05:54
  * @LastEditors: BaoTong
- * @LastEditTime: 2022-01-21 00:55:40
+ * @LastEditTime: 2022-01-21 00:59:54
  * @FilePath: \15算法刷题\leetcode-practice\【算法技巧之快速幂运算】Pow(x,n).js
  * @Description: edit
  */
@@ -13,13 +13,13 @@
  * @param {number} n
  * @return {number}
  */
-var myPow = function(x, n) {
-    let res = 1;
-    for(let i=0;i<n;i++){
-        res *= x;
-    }
-    return res;
-};
+// var myPow = function(x, n) {
+//     let res = 1;
+//     for(let i=0;i<n;i++){
+//         res *= x;
+//     }
+//     return res;
+// };
 
 var myPow = function(x, n) {
     const fun = (n) => {
@@ -32,9 +32,13 @@ var myPow = function(x, n) {
             res *= x;
         }
         if(Math.sign(n) > 0){
-            
+            return res;
+        }
+        if(Math.sign(n) < 0){
+            return 1 / res;
         }
     }
+    return fun(n);
 };
 
 console.log(myPow(2.0000,10));

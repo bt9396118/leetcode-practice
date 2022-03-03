@@ -110,16 +110,16 @@ function BinarySearchTree() {
      * 2.若查找的节点比当前节点大，则在右子树中递归查找
      */
     this.search = function(key) {
-        this.searchNode(root,key);
+        return this.searchNode(root,key);
     }
     this.searchNode = function(node,key) {
         if(node === null){
             return false;
         }
         if(key < node.key){
-            this.searchNode(node.left,key);
+            return this.searchNode(node.left,key);
         }else if(key > node.key){
-            this.searchNode(node.right,key);
+            return this.searchNode(node.right,key);
         }else{
             return true;
         }
@@ -210,4 +210,7 @@ console.log("----中序遍历-----");
 tree.inOrderTraverse(printNode);
 console.log("----后序遍历-----");
 tree.postOrderTraverse(printNode);
+
+console.log("----查找值-----");
+console.log(tree.search(8) ? 'founded':'Not founded')
 

@@ -17,6 +17,7 @@ var detectCycle = function(head) {
     var a = head.next;
     var b = head.next.next;
 
+    // 是否存在环
     while(a!==null && b!==null){
         if(a===b)break;
         a=a.next;
